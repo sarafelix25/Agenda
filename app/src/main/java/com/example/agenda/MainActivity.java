@@ -1,11 +1,12 @@
 package com.example.agenda;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,11 +20,10 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         List<String> alunos = new ArrayList<>
                 (Arrays.asList("Sara", "Fran", "Jose"));
-        TextView primeiroAluno = findViewById(R.id.textView1);
-        TextView segundoAluno = findViewById(R.id.textView4);
-        TextView terceiroAluno = findViewById(R.id.textView5);
-        primeiroAluno.setText(alunos.get(0));
-        segundoAluno.setText(alunos.get(1));
-        terceiroAluno.setText(alunos.get(2));
+       ListView listaDeAlunos = findViewById(R.id.activity_main_lista_de_alunos);
+       listaDeAlunos.setAdapter(new ArrayAdapter<String>(
+               this,
+               android.R.layout.simple_list_item_1,
+               alunos));
     }
 }
