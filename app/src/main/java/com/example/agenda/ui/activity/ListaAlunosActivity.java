@@ -24,8 +24,6 @@ public class ListaAlunosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_alunos);
 
-        AlunoDAO dao = new AlunoDAO();
-
         setTitle("Lista de Alunos");
 
         FloatingActionButton botaoNovoAluno = findViewById(R.id.activity_lista_alunos_fab_novo_aluno);
@@ -36,12 +34,19 @@ public class ListaAlunosActivity extends AppCompatActivity {
                         FormularioAlunoActivity.class));
             }
         });
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
-       ListView listaDeAlunos = findViewById(R.id.activity_lista_alunos_listview);
-       listaDeAlunos.setAdapter(new ArrayAdapter<>(
-               this,
-               android.R.layout.simple_list_item_1,
-               dao.todos()));
+        AlunoDAO dao = new AlunoDAO();
+        
+        ListView listaDeAlunos = findViewById(R.id.activity_lista_alunos_listview);
+        listaDeAlunos.setAdapter(new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_list_item_1,
+                dao.todos()));
+
     }
 }
