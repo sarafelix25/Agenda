@@ -11,7 +11,9 @@ public class Aluno {
     this.nome = nome;
     this.telefone = telefone;
     this.email = email;
+
     }
+
     @NonNull
     @Override
     public String toString(){
