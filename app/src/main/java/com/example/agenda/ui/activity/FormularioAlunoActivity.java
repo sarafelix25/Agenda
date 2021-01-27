@@ -28,6 +28,7 @@ public class FormularioAlunoActivity extends AppCompatActivity {
 
         Button botaoSalvar = findViewById(R.id.activity_formulario_aluno_botao_salvar);
         botaoSalvar.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 String nome = campoNome.getText().toString();
